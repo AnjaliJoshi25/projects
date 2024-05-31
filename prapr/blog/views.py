@@ -100,3 +100,13 @@ def contact(request):
 def blog_detail(request, pk):
     blog_post = get_object_or_404(Blog, pk=pk)
     return render(request, 'blog/blog_detail.html', {'blog': blog_post})
+
+# blog/views.py
+from django.shortcuts import render
+
+
+def contact_submit(request):
+    if request.method == 'POST':
+        # handle form submission
+        return HttpResponse("Form submitted successfully")
+    return HttpResponse("Invalid request")

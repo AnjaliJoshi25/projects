@@ -17,5 +17,6 @@ urlpatterns = [
     path('about/',views.about, name="about"),
     path('contact/',views.contact, name="contact"),
     path('blog/<int:pk>/', views.blog_detail, name='blog_detail'),
+    path('contact/submit/', views.contact_submit, name='contact_submit'),
 
 ]+ static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
