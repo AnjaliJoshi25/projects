@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Update Blog{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-10">
+            <h3 class="text-dark my-5">Update Your Blog</h3>
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Update" class="btn btn-info">
+                <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock extra_js %}

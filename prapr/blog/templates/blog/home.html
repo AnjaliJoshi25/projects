@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Blogs{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 my-5">
+            <h1 class="text-center alert alert-primary">Brewing Ideas, One Code at a Time – Sip, Code, Create!</h1>
+            <div class="row">
+                {% for blog in blogs %}
+                <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ blog.title }}</h2>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ blog.subheading }}</h6>
+                            <p class="card-text text-dark">
+                                {{ blog.content|truncatewords:30 }}
+                            </p>
+                            <p class="card-text"><strong>Topics:</strong> {{ blog.topics }}</p>
+                            <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

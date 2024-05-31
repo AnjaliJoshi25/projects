@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}{{ blog.title }}{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ blog.title }}</h1>
+            <h3>{{ blog.subheading }}</h3>
+            <p><strong>Topics:</strong> {{ blog.get_topics_display }}</p>
+            {% if blog.image %}
+            <img src="{{ blog.image.url }}" class="img-fluid my-3" alt="{{ blog.title }}">
+            {% endif %}
+            <p>{{ blog.cont }}</p>
+            <div class="text-right">
+                <button class="btn btn-primary" onclick="window.print()">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Add a Blog{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6">
+            <div class="text-center mb-4">
+                <h2>Add Blog</h2>
+            </div>
+            <form action = "" method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <label for="image">Upload Image (Optional)</label>
+                    <input type="file" id="image" name="image" class="form-control-file">
+                </div>
+                <input type="submit" value = "Add Blog" class="btn btn-success">
+                <a class="btn btn-warning" href = "{% url 'dashboard' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
